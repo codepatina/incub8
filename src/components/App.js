@@ -5,6 +5,9 @@ import Navbar from '../components/Navbar'
 import Home from '../pages/Home'
 import Builders from '../pages/Builders'
 import Ideas from '../pages/Ideas'
+import Login from '../pages/Login'
+import Register from '../pages/Register'
+import CreateIdea from '../pages/CreateIdea'
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [user_id, setUserID] = useState(localStorage.getItem("user_id") || "");
@@ -24,8 +27,11 @@ const App = () => {
      <Navbar />
       <Router>
         <Home path="/" />
-        <Builders path="/builders" />
-        <Ideas path="/ideas" />
+        <Login path="login" />
+        <Register path="register" />
+        <Builders path="builders" />
+        <Ideas path="ideas" />
+        <CreateIdea path="create" />
       </Router>
     </LoginContext.Provider>
   );

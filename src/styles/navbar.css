@@ -4,5 +4,21 @@
   font-weight: 500;
 
   font-size: 42px;
-  color: #FFAB62;
+  color: #ffab62;
+}
+
+.navbar-item {
+  color: #ff6c66;
+  font-size: 18px;
+  font-family: forma-djr-deck, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.left-navbar {
+  margin-right: 700px;
+}
+
+.right-navbar {
+  margin-right: 200px;
 }

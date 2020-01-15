@@ -1,0 +1,24 @@
+.form-title {
+    font-size: 24px;
+    color: #ff6c66;
+    font-family: forma-djr-deck, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+form {
+    border: 1px solid  #FFAB62;
+    background-color: #FCFCFC;
+    border-radius: 5px;
+    padding: 25px;
+    width: min-content;
+    margin: 50px auto;
+    font-family: forma-djr-deck, sans-serif;
+
+}
+.form-submit-button {
+    background-color: #FFAB62;
+    border-radius: 5px;
+    font-family: forma-djr-deck, sans-serif;
+
+}
