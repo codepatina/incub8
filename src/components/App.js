@@ -8,6 +8,7 @@ import Ideas from '../pages/Ideas'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import CreateIdea from '../pages/CreateIdea'
+import About from '../pages/About'
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [user_id, setUserID] = useState(localStorage.getItem("user_id") || "");
@@ -32,6 +33,7 @@ const App = () => {
         <Builders path="builders" />
         <Ideas path="ideas" />
         <CreateIdea path="create" />
+        <About path="about" />
       </Router>
     </LoginContext.Provider>
   );

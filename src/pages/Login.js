@@ -16,7 +16,7 @@ const Login = () => {
         <form>
             <h1 className="form-title">Login to Existing Account</h1>
             <div className="uk-margin">
-                <p><label>Enter Username</label></p>
+                <label className="uk-form-label">Username</label>
                 <input 
                 onChange={handleInputChange}
                 name="username"
@@ -25,7 +25,7 @@ const Login = () => {
                 />
             </div>
             <div className="uk-margin">
-                <p><label>Enter Password</label></p>
+                <label className="uk-form-label">Password</label>
                 <input 
                 onChange={handleInputChange}
                 name="password"
