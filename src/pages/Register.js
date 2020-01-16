@@ -51,7 +51,7 @@ const Register = () => {
               type="password"
             />
           </div>
-          <button className="uk-button uk-button-default form-submit-button">
+          <button className="uk-button uk-button-default  uk-text-capitalize form-submit-button">
             Next Step
           </button>
         </form>
@@ -62,7 +62,7 @@ const Register = () => {
             you with your passion project.{" "}
           </p>
           <br />
-          <p>To learn more, <Link className="uk-link-text"  to="/about">click here</Link>.</p>
+          <p>To learn more, <Link className="uk-link-text uk-text-danger"  to="/about"> Click here</Link>.</p>
         </div>
       </div>
     );

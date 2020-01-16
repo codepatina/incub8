@@ -4,7 +4,7 @@ import '../styles/navbar.css'
 
 const Navbar = () => {
     return (
-        <nav className="uk-navbar" uk-navbar>
+        <nav className="uk-navbar">
             <div className="uk-navbar-center">
                 <div className="uk-navbar left-navbar">
                     <Link className="navbar-item uk-navbar-item" to="ideas">Explore Ideas</Link>
