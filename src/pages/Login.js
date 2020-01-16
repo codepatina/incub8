@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import incub8API from '../api/incub8API'
+import { LoginContext } from '../context/loginContext'
+import { Redirect } from '@reach/router'
 import '../styles/form.css'
 
-const Login = () => {
+const Login = (props) => {
 
       const [values, setValues] = useState({ username: "", password: "" });
 
+      console.log(props)
 
     const handleInputChange = e => {
       const { name, value } = e.target;
@@ -16,6 +19,18 @@ const Login = () => {
         e.preventDefault()
         const response = await incub8API.post("/auth" , {"username": values.username, "password": values.password})
         console.log(response)
+        localStorage.setItem("token", response.data.access_token)
+        localStorage.setItem("user", response.data.username)
+        localStorage.setItem("user_id", response.data.user_id)
+        props.setToken(response.data.access_token)
+        props.setUser(response.data.username)
+        props.setUserID(response.data.username)
+    }
+
+    const renderFormOrRedirect = () => {
+        if (props.user_id && props.token) {
+
+        }
     }
     return (
       <form onSubmit={handleSubmit}>
@@ -50,4 +65,15 @@ const Login = () => {
     );
 }
 
-export default Login;
+
+const LoginWithContext = () => {
+    return (
+        <LoginContext.Consumer>
+            {value => {
+                return <Login {...value} />
+            }}
+        </LoginContext.Consumer>
+    )
+}
+
+export default LoginWithContext;
