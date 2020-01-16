@@ -1,14 +1,12 @@
 .navbar-logo {
   font-family: filson-pro, sans-serif;
-
   font-weight: 500;
-
   font-size: 42px;
   color: #ffab62;
 }
 
 .navbar-item {
-  color: #ff6c66;
+  color: #ff6c66 !important;
   font-size: 18px;
   font-family: forma-djr-deck, sans-serif;
   font-weight: 400;
