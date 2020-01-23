@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from '@reach/router'
+import { Link, navigate } from '@reach/router'
+import incub8API from '../api/incub8API'
 import "../styles/form.css";
 
 
@@ -8,12 +9,29 @@ const Register = () => {
 
     const handleInputChange = e => {
       const { name, value } = e.target;
-      setValues({ ...values, [name]: value });
+      setValues({ ...values, [name]: value.trim() });
     };
+
+
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      const response = await incub8API.post("/register", {
+        username: values.username,
+        password: values.password,
+        first_name: values.first_name,
+        last_name: values.last_name,
+        email: values.email,
+        phone_number: values.phone_number,
+        bio:
+          values.bio,
+        theme_id: "1"
+      });
+      navigate("login")
+    }
 
     return (
       <div className="register-form-container">
-        <form>
+        <form onSubmit={handleSubmit}>
           <h1 className="form-title">Register New Account</h1>
           <div className="uk-margin">
             <label className="uk-form-label">First Name</label>

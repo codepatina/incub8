@@ -9,7 +9,7 @@ import Login from '../pages/Login'
 import Register from '../pages/Register'
 import CreateIdea from '../pages/CreateIdea'
 import About from '../pages/About'
-
+import Profile from '../pages/Profile'
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [user_id, setUserID] = useState(localStorage.getItem("user_id") || "");
@@ -35,6 +35,7 @@ const App = () => {
         <Ideas path="ideas" />
         <CreateIdea path="create" />
         <About path="about" />
+        <Profile path="profile"/>
       </Router>
     </LoginContext.Provider>
   );
