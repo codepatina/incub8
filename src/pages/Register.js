@@ -37,12 +37,15 @@ const Register = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log("Form Submitted")
+    console.log(formData)
+    console.log(formData2)
 
   };
 
   return (
     <div className="register-form-container">
-      <form>
+      <form onSubmit={handleSubmit}>
         {page === 0 && (
           <>
             <h1 className="form-title">Register New Account</h1>
@@ -130,7 +133,7 @@ const Register = () => {
             <div className="uk-margin">
               <label className="uk-form-label">Bio</label>
               <textarea
-              className="uk-textarea uk-form-width-large uk-form-large"
+              className="uk-textarea uk-form-width-large"
               value={bio}
               type="text"
               onChange={event => setBio(event.target.value)}
