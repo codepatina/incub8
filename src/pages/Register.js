@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { Link, navigate } from "@reach/router";
 import incub8API from "../api/incub8API";
 import formHasEmptyFields from "../utils/form-has-empty-fields";
+import { ToastContainer } from 'react-toastify'
+import { errorNotification } from '../utils/toastNotifications'
 import "../styles/form.css";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -39,8 +43,7 @@ const Register = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     console.log("Form Submitted")
-    console.log(formData)
-    console.log(formData2)
+    
     try {
       await incub8API.post("/register", {
         username, password, email, first_name, last_name, phone_number, bio, theme_id
@@ -48,7 +51,8 @@ const Register = () => {
       })
       navigate("/login")
     } catch (error) {
-      console.log(error.message)
+      
+      errorNotification(error.response.data.message)
     }
 
   };
@@ -185,9 +189,9 @@ const Register = () => {
             {" "}
             Click here
           </Link>
-          .
         </p>
       </div>
+      <ToastContainer />
     </div>
   );
 };

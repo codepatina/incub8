@@ -2,8 +2,11 @@ import React, {useState} from 'react';
 import incub8API from '../api/incub8API'
 import { LoginContext } from '../context/loginContext'
 import { Redirect, navigate } from '@reach/router'
-import '../styles/form.css'
+import { ToastContainer } from 'react-toastify'
 import formHasEmptyFields from "../utils/form-has-empty-fields";
+import { errorNotification } from '../utils/toastNotifications';
+import "react-toastify/dist/ReactToastify.css";
+import '../styles/form.css'
 
 const Login = (props) => {
 
@@ -32,7 +35,7 @@ const Login = (props) => {
           navigate("/profile")
 
         } catch (error) {
-          console.log(error.message)
+          errorNotification(error.response.data.message)
         }
     }
 
@@ -41,36 +44,39 @@ const Login = (props) => {
           return <Redirect to="/profile" noThrow />
         } else {
         return (
-          <form onSubmit={handleSubmit}>
-            <h1 className="form-title">Login to Existing Account</h1>
-            <div className="uk-margin">
-              <label className="uk-form-label">Username</label>
-              <input
-                onChange={event => setUsername(event.target.value)}
-                name="username"
-                value={username}
-                className="uk-input uk-form-width-large"
-                type="text"
-              />
-            </div>
-            <div className="uk-margin">
-              <label className="uk-form-label">Password</label>
-              <input
-                onChange={event => setPassword(event.target.value)}
-                value={password}
-                name="password"
-                className="uk-input uk-form-width-large"
-                type="password"
-              />
-            </div>
-            <button
-              disabled={formHasEmptyFields(formData)}
-              type="submit"
-              className="uk-button uk-button-default uk-text-capitalize form-submit-button"
-            >
-              Submit
-            </button>
-          </form>
+          <>
+            <form onSubmit={handleSubmit}>
+              <h1 className="form-title">Login to Existing Account</h1>
+              <div className="uk-margin">
+                <label className="uk-form-label">Username</label>
+                <input
+                  onChange={event => setUsername(event.target.value)}
+                  name="username"
+                  value={username}
+                  className="uk-input uk-form-width-large"
+                  type="text"
+                />
+              </div>
+              <div className="uk-margin">
+                <label className="uk-form-label">Password</label>
+                <input
+                  onChange={event => setPassword(event.target.value)}
+                  value={password}
+                  name="password"
+                  className="uk-input uk-form-width-large"
+                  type="password"
+                />
+              </div>
+              <button
+                disabled={formHasEmptyFields(formData)}
+                type="submit"
+                className="uk-button uk-button-default uk-text-capitalize form-submit-button"
+              >
+                Submit
+              </button>
+            </form>
+            <ToastContainer />
+          </>
         );
     }
     }
