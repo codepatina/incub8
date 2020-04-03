@@ -18,7 +18,7 @@ const Navbar = (props) => {
             return (
                 <>
                     <li><Link className="navbar-item uk-navbar-item uk-text-capitalize" to="/profile"><span uk-icon="user"></span> Welcome {props.user}</Link></li>
-                    <li><button onClick={logout} className="logoutBtn navbar-item uk-navbar-item uk-button-small uk-text-capitalize">Logout</button></li>
+                    <li><button onClick={logout} className="logoutBtn data-uk-margin-top  uk-button-danger uk-text-small uk-text-capitalize">Logout</button></li>
                 </>
             )
             

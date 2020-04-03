@@ -20,15 +20,20 @@ const Login = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await incub8API.post("/auth" , {"username": username, "password": password})
-        console.log(response)
-        localStorage.setItem("token", response.data.access_token)
-        localStorage.setItem("user", response.data.username)
-        localStorage.setItem("user_id", response.data.user_id)
-        props.setToken(response.data.access_token)
-        props.setUser(response.data.username)
-        props.setUserID(response.data.username)
-        navigate("/profile")
+        try {
+          const response = await incub8API.post("/auth" , {"username": username, "password": password})
+          console.log(response)
+          localStorage.setItem("token", response.data.access_token)
+          localStorage.setItem("user", response.data.username)
+          localStorage.setItem("user_id", response.data.user_id)
+          props.setToken(response.data.access_token)
+          props.setUser(response.data.username)
+          props.setUserID(response.data.username)
+          navigate("/profile")
+
+        } catch (error) {
+          console.log(error.message)
+        }
     }
 
     const renderFormOrRedirect = () => {

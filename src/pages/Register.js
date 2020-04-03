@@ -14,6 +14,7 @@ const Register = () => {
   const [phone_number, setPhoneNumber] = useState("");
   const [bio, setBio] = useState("");
   const [theme_id, setTheme] = useState(1);
+  const [error, setError] = useState('')
   const [page, setPage] = useState(0);
 
   const formData = {
@@ -35,11 +36,20 @@ const Register = () => {
 
   const passwordIsValid = password => /(?=.{8,})(?=.*[0-9])/.test(password);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     console.log("Form Submitted")
     console.log(formData)
     console.log(formData2)
+    try {
+      await incub8API.post("/register", {
+        username, password, email, first_name, last_name, phone_number, bio, theme_id
+
+      })
+      navigate("/login")
+    } catch (error) {
+      console.log(error.message)
+    }
 
   };
 
