@@ -12,6 +12,7 @@ form {
     border-radius: 5px;
     padding: 25px;
     width: min-content;
+    height: 500px;
     margin: 150px auto;
     font-family: forma-djr-deck, sans-serif;
 
@@ -51,4 +52,9 @@ form {
     font-weight: 400;
     font-style: normal;
 
+}
+
+.second-step-form-button-group {
+    display: flex;
+    justify-content: space-between;
 }

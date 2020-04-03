@@ -19,12 +19,17 @@ const Register = () => {
   const formData = {
     username,
     password,
-    email,
     first_name,
     last_name,
-    phone_number,
-    bio
+   
   };
+
+  const formData2 = {
+    email,
+    bio,
+    phone_number,
+
+  }
 
   const emailIsValid = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -96,6 +101,48 @@ const Register = () => {
               {passwordConfirmation !== password && (
                 <span className="uk-text-danger">Passwords do not match</span>
               )}
+            </div>
+          </>
+        )}
+        {page === 1 && (
+          <>
+            <div className="uk-margin">
+              <label className="uk-form-label">Email</label>
+              <input
+              value={email}
+              type="email"
+              onChange={event => setEmail(event.target.value)}
+              className={email && !emailIsValid(email) ? "uk-input uk-form-width-large uk-form-danger" : "uk-input uk-form-width-large"}
+              />
+              {email && !emailIsValid(email) && (
+                <span className="uk-text-danger">Email is not valid</span>
+              )}
+            </div>
+            <div className="uk-margin">
+              <label className="uk-form-label">Phone Number</label>
+              <input 
+              value={phone_number}
+              type="tel"
+              onChange={event => setPhoneNumber(event.target.value)}
+              className="uk-input uk-form-width-large"
+              />
+            </div>
+            <div className="uk-margin">
+              <label className="uk-form-label">Bio</label>
+              <textarea
+              className="uk-textarea uk-form-width-large uk-form-large"
+              value={bio}
+              type="text"
+              onChange={event => setBio(event.target.value)}
+               />
+            </div>
+          </>
+        )}
+        {page !== 0 && (
+          <>
+            <div className="second-step-form-button-group">
+              <button onClick={() => setPage(page - 1)} type="button" className="uk-button uk-button-default uk-text-capitalize form-submit-button">Previous</button>
+              <button disabled={formHasEmptyFields(formData2) || !emailIsValid(email)}  type="submit" className="uk-button uk-button-default uk-text-capitalize form-submit-button">Submit</button>
             </div>
           </>
         )}
