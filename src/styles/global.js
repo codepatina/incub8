@@ -7,13 +7,18 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
+  html, body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text}; 
     font-family: forma-djr-deck, sans-serif;
     transition: all 0.25s linear;
-    height: 100vh;
-
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: scroll;
+    min-width:xxpx; 
   }
 
   form {
@@ -22,9 +27,9 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text}; 
 
     border-radius: 5px;
-    padding: 25px;
+    padding: 20px;
     width: min-content;
-    height: 550px;
+    height: 620px;
     margin: 150px auto;
     font-family: forma-djr-deck, sans-serif;
 
