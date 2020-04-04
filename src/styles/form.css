@@ -20,13 +20,11 @@
     justify-content: space-around;
     align-items: center;
     width: 80vw;
-    height: min-content;
     margin: 0 auto;
 }
 
 .tagline-container {
     margin-right: 100px;
-    margin-bottom: 100px;
     flex: 0 0 23%;
     font-display: left-justified;
     font-family: forma-djr-deck, sans-serif;

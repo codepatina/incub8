@@ -7,18 +7,15 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html, body {
+   html, body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text}; 
     font-family: forma-djr-deck, sans-serif;
     transition: all 0.25s linear;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    overflow-x: scroll;
-    min-width:xxpx; 
   }
 
   form {
@@ -27,10 +24,12 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text}; 
 
     border-radius: 5px;
-    padding: 20px;
+    padding-top: 40px;
+    padding-left:  20px;
+    padding-right: 20px;
     width: min-content;
+    margin: 100px auto;
     height: 620px;
-    margin: 150px auto;
     font-family: forma-djr-deck, sans-serif;
 
 }
