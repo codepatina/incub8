@@ -51,19 +51,7 @@ button:hover {
 
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-    background-color: ${({ theme }) => theme.inputBackground} !important;
-    border: ${({ theme }) => theme.inputBorder} !important;
-    color: ${({ theme }) => theme.text} !important; 
-    -webkit-text-fill-color: ${({ theme }) => theme.text} !important;
-    -webkit-background-color: ${({ theme }) =>
-      theme.inputBackground} 1000px inset !important;
-    transition: background-color 5000s ease-in-out 0s;
 
-}
 
 textarea {
     background-color: ${({ theme }) => theme.inputBackground} !important;
