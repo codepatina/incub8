@@ -6,17 +6,7 @@
     font-style: normal;
 }
 
-form {
-    border: 1px solid  #FFAB62;
-    background-color: #FCFCFC;
-    border-radius: 5px;
-    padding: 25px;
-    width: min-content;
-    height: 500px;
-    margin: 150px auto;
-    font-family: forma-djr-deck, sans-serif;
 
-}
 .form-submit-button {
     background-color: #FFAB62;
     border-radius: 5px;

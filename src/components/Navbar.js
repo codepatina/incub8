@@ -5,6 +5,7 @@ import '../styles/navbar.css'
 
 const Navbar = (props) => {
 
+
     
     const logout = () => {
       localStorage.clear();
@@ -34,7 +35,7 @@ const Navbar = (props) => {
 
 
     return (
-        <nav className="uk-padding-large uk-padding-remove-vertical" data-uk-navbar>
+        <nav className="navbar uk-padding-large uk-padding-remove-vertical" data-uk-navbar>
             <div className="uk-navbar-left">
                 <ul className="uk-navbar-nav">
                     <li>
@@ -57,7 +58,7 @@ const Navbar = (props) => {
                     <div className="container uk-navbar-item">
                         <label className="switch" htmlFor="checkbox">
                         <input type="checkbox" id="checkbox" />
-                    <div className="slider round"></div>
+                    <div onClick={props.toggleTheme} className="slider round"></div>
                     </label>
                     </div>
                 </ul>
@@ -67,11 +68,11 @@ const Navbar = (props) => {
 }
 
 
-const NavbarWithContext = () => {
+const NavbarWithContext = (props) => {
     return (
         <LoginContext.Consumer>
             {value => {
-                return <Navbar {...value} />
+                return <Navbar {...value} {...props} />
             }}
         </LoginContext.Consumer>
     )
