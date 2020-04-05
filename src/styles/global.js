@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text}; 
     font-family: forma-djr-deck, sans-serif;
+    font-weight: 100 !important;
     transition: all 0.25s linear;
     width: 100vw;
     height: 100vh;

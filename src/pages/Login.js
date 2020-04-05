@@ -44,13 +44,13 @@ const Login = (props) => {
           return <Redirect to="/profile" noThrow />
         } else {
         return (
-          <>
+          <div className="uk-animation-slide-left-small">
             <form onSubmit={handleSubmit}>
               <h1 className="form-title">Login to Existing Account</h1>
               <div className="uk-margin">
                 <label className="uk-form-label">Username</label>
                 <input
-                  onChange={event => setUsername(event.target.value)}
+                  onChange={(event) => setUsername(event.target.value)}
                   name="username"
                   value={username}
                   className="uk-input uk-form-width-large"
@@ -60,7 +60,7 @@ const Login = (props) => {
               <div className="uk-margin">
                 <label className="uk-form-label">Password</label>
                 <input
-                  onChange={event => setPassword(event.target.value)}
+                  onChange={(event) => setPassword(event.target.value)}
                   value={password}
                   name="password"
                   className="uk-input uk-form-width-large"
@@ -76,7 +76,7 @@ const Login = (props) => {
               </button>
             </form>
             <ToastContainer />
-          </>
+          </div>
         );
     }
     }

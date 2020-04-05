@@ -58,7 +58,7 @@ const Register = () => {
   };
 
   return (
-    <div className="register-form-container">
+    <div className="register-form-container uk-animation-slide-left-small">
       <form onSubmit={handleSubmit}>
         {page === 0 && (
           <>
@@ -67,7 +67,7 @@ const Register = () => {
               <label className="uk-form-label">First Name</label>
               <input
                 value={first_name}
-                onChange={event => setFirstName(event.target.value)}
+                onChange={(event) => setFirstName(event.target.value)}
                 name="first_name"
                 className="uk-input uk-form-width-large"
                 type="text"
@@ -76,7 +76,7 @@ const Register = () => {
             <div className="uk-margin">
               <label className="uk-form-label">Last Name</label>
               <input
-                onChange={event => setLastName(event.target.value)}
+                onChange={(event) => setLastName(event.target.value)}
                 value={last_name}
                 name="last_name"
                 className="uk-input uk-form-width-large"
@@ -86,7 +86,7 @@ const Register = () => {
             <div className="uk-margin">
               <label className="uk-form-label">Username</label>
               <input
-                onChange={event => setUsername(event.target.value)}
+                onChange={(event) => setUsername(event.target.value)}
                 value={username}
                 name="username"
                 className="uk-input uk-form-width-large"
@@ -96,23 +96,35 @@ const Register = () => {
             <div className="uk-margin">
               <label className="uk-form-label">Password</label>
               <input
-                onChange={event => setPassword(event.target.value)}
+                onChange={(event) => setPassword(event.target.value)}
                 value={password}
                 name="password"
-                className={password && !passwordIsValid(password) ? "uk-input uk-form-width-large uk-form-danger" : "uk-input uk-form-width-large" }
+                className={
+                  password && !passwordIsValid(password)
+                    ? "uk-input uk-form-width-large uk-form-danger"
+                    : "uk-input uk-form-width-large"
+                }
                 type="password"
               />
               {password && !passwordIsValid(password) && (
-                <span className="uk-text-danger">Password must be at least 8 characters and contain 1 number</span>
+                <span className="uk-text-danger">
+                  Password must be at least 8 characters and contain 1 number
+                </span>
               )}
             </div>
             <div className="uk-margin">
               <label className="uk-form-label">Confirm Password</label>
               <input
-                onChange={event => setPasswordConfirmation(event.target.value)}
+                onChange={(event) =>
+                  setPasswordConfirmation(event.target.value)
+                }
                 value={passwordConfirmation}
                 name="passwordConfirmation"
-                className={passwordConfirmation !== password ? "uk-input uk-form-width-large uk-form-danger" : "uk-input uk-form-width-large"}
+                className={
+                  passwordConfirmation !== password
+                    ? "uk-input uk-form-width-large uk-form-danger"
+                    : "uk-input uk-form-width-large"
+                }
                 type="password"
               />
               {passwordConfirmation !== password && (
@@ -126,10 +138,14 @@ const Register = () => {
             <div className="uk-margin">
               <label className="uk-form-label">Email</label>
               <input
-              value={email}
-              type="email"
-              onChange={event => setEmail(event.target.value)}
-              className={email && !emailIsValid(email) ? "uk-input uk-form-width-large uk-form-danger" : "uk-input uk-form-width-large"}
+                value={email}
+                type="email"
+                onChange={(event) => setEmail(event.target.value)}
+                className={
+                  email && !emailIsValid(email)
+                    ? "uk-input uk-form-width-large uk-form-danger"
+                    : "uk-input uk-form-width-large"
+                }
               />
               {email && !emailIsValid(email) && (
                 <span className="uk-text-danger">Email is not valid</span>
@@ -137,29 +153,41 @@ const Register = () => {
             </div>
             <div className="uk-margin">
               <label className="uk-form-label">Phone Number</label>
-              <input 
-              value={phone_number}
-              type="tel"
-              onChange={event => setPhoneNumber(event.target.value)}
-              className="uk-input uk-form-width-large"
+              <input
+                value={phone_number}
+                type="tel"
+                onChange={(event) => setPhoneNumber(event.target.value)}
+                className="uk-input uk-form-width-large"
               />
             </div>
             <div className="uk-margin">
               <label className="uk-form-label">Bio</label>
               <textarea
-              className="uk-textarea uk-form-width-large"
-              value={bio}
-              type="text"
-              onChange={event => setBio(event.target.value)}
-               />
+                className="uk-textarea uk-form-width-large"
+                value={bio}
+                type="text"
+                onChange={(event) => setBio(event.target.value)}
+              />
             </div>
           </>
         )}
         {page !== 0 && (
           <>
             <div className="second-step-form-button-group">
-              <button onClick={() => setPage(page - 1)} type="button" className="uk-button uk-button-default uk-text-capitalize form-submit-button">Previous</button>
-              <button disabled={formHasEmptyFields(formData2) || !emailIsValid(email)}  type="submit" className="uk-button uk-button-default uk-text-capitalize form-submit-button">Submit</button>
+              <button
+                onClick={() => setPage(page - 1)}
+                type="button"
+                className="uk-button uk-button-default uk-text-capitalize form-submit-button"
+              >
+                Previous
+              </button>
+              <button
+                disabled={formHasEmptyFields(formData2) || !emailIsValid(email)}
+                type="submit"
+                className="uk-button uk-button-default uk-text-capitalize form-submit-button"
+              >
+                Submit
+              </button>
             </div>
           </>
         )}

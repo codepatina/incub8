@@ -1,4 +1,8 @@
 
+.navbar {
+  border-bottom: 1px solid #ffab6260;
+  width: 100vw;
+}
 .navbar-logo {
   font-family: filson-pro, sans-serif;
   font-weight: 500;
