@@ -29,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
     padding-left:  20px;
     padding-right: 20px;
     width: min-content;
-    margin: 50px auto;
+    margin: 100px auto;
     height: 620px;
     font-family: forma-djr-deck, sans-serif;
 
