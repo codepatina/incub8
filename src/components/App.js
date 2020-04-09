@@ -40,7 +40,7 @@ const App = () => {
           setUserID,
         }}
       >
-        <Navbar toggleTheme={toggleTheme} />
+        <Navbar toggleTheme={toggleTheme} theme={themeMode} />
         <Router primary={false}>
           <Home path="/" />
           <Login path="login" />

@@ -66,4 +66,43 @@ textarea {
     border: ${({ theme }) => theme.inputBorder} !important;
     color: ${({ theme }) => theme.text} !important; 
 }
+
+.slider {
+  background-color: ${({ theme }) => theme.slider};
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 17px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 19px;
+}
+
+input:checked + .slider {
+  background-color: ${({ theme }) => theme.slider};
+  border: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 `;

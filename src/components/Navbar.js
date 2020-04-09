@@ -16,6 +16,8 @@ const Navbar = (props) => {
       navigate("/")
     };
 
+    console.log(props.theme.slider)
+
     const renderNavbarWithLinks = () => {
         if (props.user_id && props.token) {
             return (
@@ -37,36 +39,60 @@ const Navbar = (props) => {
 
 
     return (
-        <nav className="navbar uk-padding-large uk-padding-remove-vertical" data-uk-navbar>
-            <div className="uk-navbar-left">
-                <ul className="uk-navbar-nav">
-                    <li>
-                        <Link className="navbar-item uk-navbar-item uk-text-capitalize" to="ideas">Explore Ideas</Link>
-                    </li>
-                    <li>
-                        <Link className="navbar-item uk-navbar-item uk-text-capitalize" to="builders">Find Builders</Link>
-                    </li>
-                    <li>
-                        <Link className="navbar-item uk-navbar-item uk-text-capitalize" to="create">Start An Idea</Link>
-                    </li>
-                </ul>
+      <nav
+        className="navbar uk-padding-large uk-padding-remove-vertical"
+        data-uk-navbar
+      >
+        <div className="uk-navbar-left">
+          <ul className="uk-navbar-nav">
+            <li>
+              <Link
+                className="navbar-item uk-navbar-item uk-text-capitalize"
+                to="ideas"
+              >
+                Explore Ideas
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="navbar-item uk-navbar-item uk-text-capitalize"
+                to="builders"
+              >
+                Find Builders
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="navbar-item uk-navbar-item uk-text-capitalize"
+                to="create"
+              >
+                Start An Idea
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="uk-navbar-center">
+          <Link to="/" className="navbar-logo uk-logo">
+            incub8
+          </Link>
+        </div>
+        <div className="uk-navbar-right">
+          <ul className="uk-navbar-nav">
+            {renderNavbarWithLinks()}
+            <div className="container uk-navbar-item">
+              <label className="switch" htmlFor="checkbox">
+                <input
+                  type="checkbox"
+                  id="checkbox"
+                  defaultChecked={props.theme.slider === "rgb(180, 101, 189)" ? true : false}
+                />
+                <div onClick={props.toggleTheme} className="slider round"></div>
+              </label>
             </div>
-            <div className="uk-navbar-center">
-                <Link to="/" className="navbar-logo uk-logo">incub8</Link>
-            </div>
-            <div className="uk-navbar-right">
-                <ul className="uk-navbar-nav">
-                    {renderNavbarWithLinks()}
-                    <div className="container uk-navbar-item">
-                        <label className="switch" htmlFor="checkbox">
-                        <input type="checkbox" id="checkbox" />
-                    <div onClick={props.toggleTheme} className="slider round"></div>
-                    </label>
-                    </div>
-                </ul>
-            </div>
-        </nav>
-    )
+          </ul>
+        </div>
+      </nav>
+    );
 }
 
 
