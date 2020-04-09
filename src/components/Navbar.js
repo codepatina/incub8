@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from '@reach/router'
 import { LoginContext } from '../context/loginContext'
+import {navigate} from '@reach/router'
 import '../styles/navbar.css'
 
 const Navbar = (props) => {
@@ -12,6 +13,7 @@ const Navbar = (props) => {
       props.setToken("");
       props.setUser("")
       props.setUserID("");
+      navigate("/")
     };
 
     const renderNavbarWithLinks = () => {

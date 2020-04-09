@@ -1,35 +1,34 @@
 import React, { useState } from "react";
 import { LoginContext } from "../context/loginContext";
-import { ThemeProvider } from 'styled-components'
-import { GlobalStyles } from '../styles/global'
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "../styles/global";
 import { Router } from "@reach/router";
-import { lightTheme, darkTheme} from '../theme'
-import Navbar from '../components/Navbar'
-import Home from '../pages/Home'
-import Builders from '../pages/Builders'
-import Ideas from '../pages/Ideas'
-import Login from '../pages/Login'
-import Register from '../pages/Register'
-import CreateIdea from '../pages/CreateIdea'
-import About from '../pages/About'
-import Profile from '../pages/Profile'
+import { lightTheme, darkTheme } from "../themes/theme";
+import { useDarkMode } from "../themes/useDarkMode";
+
+import Navbar from "../components/Navbar";
+import Home from "../pages/Home";
+import Builders from "../pages/Builders";
+import Ideas from "../pages/Ideas";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import CreateIdea from "../pages/CreateIdea";
+import About from "../pages/About";
+import Profile from "../pages/Profile";
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [user_id, setUserID] = useState(localStorage.getItem("user_id") || "");
   const [user, setUser] = useState(localStorage.getItem("user") || "");
+  const [theme, toggleTheme, componentMounted] = useDarkMode();
 
-  const [theme, setTheme] = useState("light");
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  };
-  
- 
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
+
+  if (!componentMounted) {
+    return <div />;
+  }
+
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <LoginContext.Provider
         value={{
@@ -41,7 +40,7 @@ const App = () => {
           setUserID,
         }}
       >
-        <Navbar toggleTheme={toggleTheme}/>
+        <Navbar toggleTheme={toggleTheme} />
         <Router>
           <Home path="/" />
           <Login path="login" />

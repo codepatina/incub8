@@ -12,12 +12,10 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text}; 
     font-family: forma-djr-deck, sans-serif;
     font-weight: 100 !important;
-    transition: all 0.25s linear;
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
-    transition: all 1s;
   }
 
   form {
