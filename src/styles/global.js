@@ -21,6 +21,7 @@ export const GlobalStyles = createGlobalStyle`
   form {
     border: 1px solid  #FFAB62;
     background: ${({ theme }) => theme.body};
+    transition: background .3s linear;
     color: ${({ theme }) => theme.text}; 
 
     border-radius: 5px;
@@ -36,10 +37,13 @@ export const GlobalStyles = createGlobalStyle`
 
 nav {
     background-color: ${({ theme }) => theme.nav};
+    transition: background-color .3s linear;
+
 }
 
 label {
     color: ${({ theme }) => theme.text} !important; 
+    transition: color .3s linear;
 
 }
 
