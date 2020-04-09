@@ -41,7 +41,7 @@ const App = () => {
         }}
       >
         <Navbar toggleTheme={toggleTheme} />
-        <Router>
+        <Router primary={false}>
           <Home path="/" />
           <Login path="login" />
           <Register path="register" />

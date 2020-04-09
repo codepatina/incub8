@@ -12,8 +12,8 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text}; 
     font-family: forma-djr-deck, sans-serif;
     font-weight: 100 !important;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
   }
@@ -25,11 +25,11 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text}; 
 
     border-radius: 5px;
-    padding-top: 40px;
+    padding-top: 20px;
     padding-left:  20px;
     padding-right: 20px;
     width: min-content;
-    margin: 100px auto;
+    margin: 50px auto;
     height: 620px;
     font-family: forma-djr-deck, sans-serif;
 
