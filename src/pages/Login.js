@@ -45,7 +45,7 @@ const Login = (props) => {
         } else {
         return (
           <div className="uk-animation-slide-left-small">
-            <form onSubmit={handleSubmit}>
+            <form className="register-form" onSubmit={handleSubmit}>
               <h1 className="form-title">Login to Existing Account</h1>
               <div className="uk-margin">
                 <label className="uk-form-label">Username</label>
@@ -70,7 +70,7 @@ const Login = (props) => {
               <button
                 disabled={formHasEmptyFields(formData)}
                 type="submit"
-                className="uk-button uk-button-default uk-text-capitalize form-submit-button"
+                className="uk-button uk-button-default uk-text-capitalize login-form-submit-button"
               >
                 Submit
               </button>

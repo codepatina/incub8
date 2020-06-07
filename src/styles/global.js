@@ -18,7 +18,19 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
-  form {
+  .register-form-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 80vw;
+    margin: 0 auto;
+    
+}
+
+
+
+  .register-form {
     border: 1px solid  #FFAB62;
     background: ${({ theme }) => theme.body};
     transition: background .3s linear;
@@ -28,11 +40,23 @@ export const GlobalStyles = createGlobalStyle`
     padding-top: 20px;
     padding-left:  20px;
     padding-right: 20px;
+    padding-bottom: 30px;
     width: min-content;
     margin: 100px auto;
-    height: 620px;
+    height: max-content;
     font-family: forma-djr-deck, sans-serif;
 
+}
+
+.register-form-2-container {
+  width: 95vw;
+  height: 100vh;
+  border: transparent;  
+}
+
+.register-form-2 {
+  margin-top: 5rem;
+  height: 100vh;
 }
 
 nav {
@@ -54,17 +78,35 @@ input {
 }
 
 
+
 button:hover {
     color: ${({ theme }) => theme.text} !important; 
 
 }
 
+.card {
+  background-color: ${({ theme }) => theme.inputBackground} !important;
+    border: ${({ theme }) => theme.inputBorder} !important;
+    color: ${({ theme }) => theme.text} !important; 
+    padding: 10px;
+}
 
+.quill {
+  height: 15vh;
+}
 
 textarea {
     background-color: ${({ theme }) => theme.inputBackground} !important;
     border: ${({ theme }) => theme.inputBorder} !important;
     color: ${({ theme }) => theme.text} !important; 
+}
+
+.avatarPlaceholder {
+  height: 10vh;
+  width: 10vh;
+  background-color: #BEBEBE;
+  border: ${({ theme }) => theme.inputBorder} !important;
+
 }
 
 .slider {
@@ -105,4 +147,12 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.profile-button-group {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
 `;
+

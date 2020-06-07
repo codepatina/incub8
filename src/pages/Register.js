@@ -1,38 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, navigate } from "@reach/router";
 import incub8API from "../api/incub8API";
 import formHasEmptyFields from "../utils/form-has-empty-fields";
 import { ToastContainer } from 'react-toastify'
 import { errorNotification } from '../utils/toastNotifications'
+import { Editor, EditorState } from "draft-js";
+
 import "../styles/form.css";
 import "react-toastify/dist/ReactToastify.css";
 
 
+
+
 const Register = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [email, setEmail] = useState("");
-  const [first_name, setFirstName] = useState("");
-  const [last_name, setLastName] = useState("");
-  const [phone_number, setPhoneNumber] = useState("");
+  const [username, setUsername] = useState("jtx007");
+  const [password, setPassword] = useState("jamesbond7");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("jamesbond7");
+  const [email, setEmail] = useState("jamesjacobthomas7@gmail.com");
+  const [name, setName] = useState("James");
   const [bio, setBio] = useState("");
-  const [theme_id, setTheme] = useState(1);
   const [error, setError] = useState('')
   const [page, setPage] = useState(0);
+  const [editorState, setEditorState] = useState(
+    EditorState.createEmpty()
+  );
+
+
+ 
+
+   
+
 
   const formData = {
     username,
     password,
-    first_name,
-    last_name,
+    name,
+    
    
   };
 
   const formData2 = {
     email,
     bio,
-    phone_number,
 
   }
 
@@ -46,7 +55,7 @@ const Register = () => {
     
     try {
       await incub8API.post("/register", {
-        username, password, email, first_name, last_name, phone_number, bio, theme_id
+        username, password, email, name, bio
 
       })
       navigate("/login")
@@ -59,30 +68,21 @@ const Register = () => {
 
   return (
     <div className="register-form-container uk-animation-slide-left-small">
-      <form onSubmit={handleSubmit}>
+      <form className="register-form" onSubmit={handleSubmit}>
         {page === 0 && (
-          <>
-            <h1 className="form-title">Register New Account</h1>
+          <div className="uk-animation-slide-left-small">
+            <h1 className="form-title ">Register New Account</h1>
             <div className="uk-margin">
-              <label className="uk-form-label">First Name</label>
+              <label className="uk-form-label">Name</label>
               <input
-                value={first_name}
-                onChange={(event) => setFirstName(event.target.value)}
-                name="first_name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                name="name"
                 className="uk-input uk-form-width-large"
                 type="text"
               />
             </div>
-            <div className="uk-margin">
-              <label className="uk-form-label">Last Name</label>
-              <input
-                onChange={(event) => setLastName(event.target.value)}
-                value={last_name}
-                name="last_name"
-                className="uk-input uk-form-width-large"
-                type="text"
-              />
-            </div>
+
             <div className="uk-margin">
               <label className="uk-form-label">Username</label>
               <input
@@ -92,6 +92,22 @@ const Register = () => {
                 className="uk-input uk-form-width-large"
                 type="text"
               />
+            </div>
+            <div className="uk-margin">
+              <label className="uk-form-label">Email</label>
+              <input
+                value={email}
+                type="email"
+                onChange={(event) => setEmail(event.target.value)}
+                className={
+                  email && !emailIsValid(email)
+                    ? "uk-input uk-form-width-large uk-form-danger"
+                    : "uk-input uk-form-width-large"
+                }
+              />
+              {email && !emailIsValid(email) && (
+                <span className="uk-text-danger">Email is not valid</span>
+              )}
             </div>
             <div className="uk-margin">
               <label className="uk-form-label">Password</label>
@@ -131,43 +147,69 @@ const Register = () => {
                 <span className="uk-text-danger">Passwords do not match</span>
               )}
             </div>
-          </>
+          </div>
         )}
         {page === 1 && (
           <>
-            <div className="uk-margin">
-              <label className="uk-form-label">Email</label>
-              <input
-                value={email}
-                type="email"
-                onChange={(event) => setEmail(event.target.value)}
-                className={
-                  email && !emailIsValid(email)
-                    ? "uk-input uk-form-width-large uk-form-danger"
-                    : "uk-input uk-form-width-large"
-                }
-              />
-              {email && !emailIsValid(email) && (
-                <span className="uk-text-danger">Email is not valid</span>
-              )}
-            </div>
-            <div className="uk-margin">
-              <label className="uk-form-label">Phone Number</label>
-              <input
-                value={phone_number}
-                type="tel"
-                onChange={(event) => setPhoneNumber(event.target.value)}
-                className="uk-input uk-form-width-large"
-              />
-            </div>
-            <div className="uk-margin">
-              <label className="uk-form-label">Bio</label>
-              <textarea
-                className="uk-textarea uk-form-width-large"
-                value={bio}
-                type="text"
-                onChange={(event) => setBio(event.target.value)}
-              />
+            <div className="register-form-2-container uk-animation-slide-left-small">
+              <div className="register-form-2" data-uk-grid="masonry: true">
+                <div className="uk-width-1-2">
+                  <div className="uk-card">
+                    <h1 className="tagline-title">
+                      Next, tell us what you're all about.
+                    </h1>
+                    <p>
+                      You'll want to describe some personal details about
+                      yourself that will help others connect with you and your
+                      ideas. What is your background? What do you want to work
+                      on? What excites you? The more information you can give,
+                      the better. All the fields here are required so we can
+                      help you connect with others - and help others connect
+                      with you.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div classname="register-form-2" data-uk-grid="masonry: true">
+                <div className="uk-width-1-3">
+                  <div className="tagline-container">
+                    <h1 className="tagline-title">Profile</h1>
+                    <p>Name: {name}</p>
+                    <p>Username: {username}</p>
+                    <p>Email: {email}</p>
+                    <p className="profile-button-group" data-uk-margin>
+                      <div className="avatarPlaceholder uk-border-circle"></div>
+                      <button className="uk-button uk-button-default uk-text-capitalize upload-photo-button">
+                        Upload Photo
+                      </button>
+                    </p>
+                  </div>
+                </div>
+                <div className="uk-width-2-3">
+                  <div className="uk-card uk-card-large quill">
+                    <div className="tagline-container">
+                      <h1 className="tagline-title">Bio</h1>
+                      <div onClick>
+                        <Editor
+                          editorState={editorState}
+                          onChange={(editorState) =>
+                            setEditorState(editorState)
+                          }
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div data-uk-grid="masonry: true">
+                <div className="uk-width-2-3">
+                  <div className="uk-card uk-card-large">
+                    <div className="tagline-container">
+                      <h1 className="tagline-title">Links</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </>
         )}
@@ -177,7 +219,7 @@ const Register = () => {
               <button
                 onClick={() => setPage(page - 1)}
                 type="button"
-                className="uk-button uk-button-default uk-text-capitalize form-submit-button"
+                className="uk-button uk-button-default uk-text-capitalize previous-page-button"
               >
                 Previous
               </button>
@@ -198,27 +240,29 @@ const Register = () => {
             }
             onClick={() => setPage(page + 1)}
             type="button"
-            className="uk-button uk-button-default  uk-text-capitalize form-submit-button"
+            className="uk-button uk-button-default  uk-text-capitalize next-step-button"
           >
             Next Step
           </button>
         )}
       </form>
-      <div className="tagline-container">
-        <h1 className="tagline-title">Let's Get Creative.</h1>
-        <p>
-          Join our platform to get started connecting with others who can help
-          you with your passion project.{" "}
-        </p>
-        <br />
-        <p>
-          To learn more,{" "}
-          <Link className="uk-link-text uk-text-danger" to="/about">
-            {" "}
-            Click here
-          </Link>
-        </p>
-      </div>
+      {page === 0 && (
+        <div className="tagline-container uk-animation-slide-left-small">
+          <h1 className="tagline-title">Let's Get Creative.</h1>
+          <p>
+            Join our platform to get started connecting with others who can help
+            you with your passion project.{" "}
+          </p>
+          <br />
+          <p>
+            To learn more,{" "}
+            <Link className="uk-link-text uk-text-danger" to="/about">
+              {" "}
+              Click here
+            </Link>
+          </p>
+        </div>
+      )}
       <ToastContainer />
     </div>
   );

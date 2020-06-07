@@ -16,7 +16,6 @@ const Navbar = (props) => {
       navigate("/")
     };
 
-    console.log(props.theme.slider)
 
     const renderNavbarWithLinks = () => {
         if (props.user_id && props.token) {
