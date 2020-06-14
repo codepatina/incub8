@@ -44,39 +44,44 @@ const Login = (props) => {
           return <Redirect to="/profile" noThrow />
         } else {
         return (
-          <div className="uk-animation-slide-left-small">
-            <form className="register-form" onSubmit={handleSubmit}>
-              <h1 className="form-title">Login to Existing Account</h1>
-              <div className="uk-margin">
-                <label className="uk-form-label">Username</label>
-                <input
-                  onChange={(event) => setUsername(event.target.value)}
-                  name="username"
-                  value={username}
-                  className="uk-input uk-form-width-large"
-                  type="text"
-                />
-              </div>
-              <div className="uk-margin">
-                <label className="uk-form-label">Password</label>
-                <input
-                  onChange={(event) => setPassword(event.target.value)}
-                  value={password}
-                  name="password"
-                  className="uk-input uk-form-width-large"
-                  type="password"
-                />
-              </div>
-              <button
-                disabled={formHasEmptyFields(formData)}
-                type="submit"
-                className="uk-button uk-button-default uk-text-capitalize login-form-submit-button"
+          <section className="uk-flex uk-flex-row  uk-flex-middle	uk-flex-center uk-margin-xlarge-top">
+            <div className="uk-animation-slide-left-small">
+              <form
+                className="register-form-step-1 uk-padding-small"
+                onSubmit={handleSubmit}
               >
-                Submit
-              </button>
-            </form>
-            <ToastContainer />
-          </div>
+                <h1 className="form-title">Login to Existing Account</h1>
+                <div className="uk-margin">
+                  <label className="uk-form-label">Username</label>
+                  <input
+                    onChange={(event) => setUsername(event.target.value)}
+                    name="username"
+                    value={username}
+                    className="uk-input uk-form-width-large"
+                    type="text"
+                  />
+                </div>
+                <div className="uk-margin">
+                  <label className="uk-form-label">Password</label>
+                  <input
+                    onChange={(event) => setPassword(event.target.value)}
+                    value={password}
+                    name="password"
+                    className="uk-input uk-form-width-large"
+                    type="password"
+                  />
+                </div>
+                <button
+                  disabled={formHasEmptyFields(formData)}
+                  type="submit"
+                  className="uk-button uk-button-default uk-text-capitalize login-form-submit-button"
+                >
+                  Submit
+                </button>
+              </form>
+              <ToastContainer />
+            </div>
+          </section>
         );
     }
     }

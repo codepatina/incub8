@@ -25,39 +25,47 @@ export const GlobalStyles = createGlobalStyle`
     align-items: center;
     width: 80vw;
     margin: 0 auto;
-    
+
 }
 
 
 
-  .register-form {
-    border: 1px solid  #FFAB62;
+  .register-form-step-1 {
     background: ${({ theme }) => theme.body};
     transition: background .3s linear;
     color: ${({ theme }) => theme.text}; 
+    border: 1px solid #FFAB62;
 
     border-radius: 5px;
-    padding-top: 20px;
-    padding-left:  20px;
-    padding-right: 20px;
-    padding-bottom: 30px;
+    
     width: min-content;
-    margin: 100px auto;
     height: max-content;
     font-family: forma-djr-deck, sans-serif;
 
 }
 
-.register-form-2-container {
+.register-form-step-2 {
   width: 95vw;
-  height: 100vh;
-  border: transparent;  
+  height: 95vh;
+  border: none; 
+
 }
 
-.register-form-2 {
-  margin-top: 5rem;
-  height: 100vh;
+.register-step-2-section {
+    font-display: left-justified;
+    font-family: forma-djr-deck, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    border: 1px solid  #ff6c66;
+    padding: 20px;
+    height: min-content;
 }
+
+
+
+
+
 
 nav {
     background-color: ${({ theme }) => theme.nav};
@@ -84,6 +92,10 @@ button:hover {
 
 }
 
+
+
+
+
 .card {
   background-color: ${({ theme }) => theme.inputBackground} !important;
     border: ${({ theme }) => theme.inputBorder} !important;
@@ -91,15 +103,25 @@ button:hover {
     padding: 10px;
 }
 
-.quill {
-  height: 15vh;
+
+
+
+.bio-section {
 }
 
-textarea {
-    background-color: ${({ theme }) => theme.inputBackground} !important;
+.ql-editor {
     border: ${({ theme }) => theme.inputBorder} !important;
-    color: ${({ theme }) => theme.text} !important; 
+    height: 200px;
 }
+
+
+
+.ql-snow .ql-picker-label {
+  color: ${({ theme }) => theme.text} !important; 
+
+}
+
+
 
 .avatarPlaceholder {
   height: 10vh;
@@ -155,4 +177,3 @@ input:checked + .slider:before {
   align-items: center;
 }
 `;
-
