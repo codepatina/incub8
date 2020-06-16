@@ -1,5 +1,6 @@
 import React from "react";
 import formHasEmptyFields from "../utils/form-has-empty-fields";
+import LinkPreview from './LinkPreview'
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -115,10 +116,11 @@ const RegisterStep2 = ({
           </div>
         </div>
         <div data-uk-grid="masonry: true">
-          <div className="uk-width-2-3 uk-height-large">
-            <div className="uk-card uk-height-large uk-card-large">
+          <div className="uk-width-2-3">
+            <div className="uk-card">
               <div className="register-step-2-section">
                 <h1 className="tagline-title">Links</h1>
+                <LinkPreview />
               </div>
             </div>
           </div>
@@ -126,7 +128,7 @@ const RegisterStep2 = ({
         <button
           disabled={formHasEmptyFields(formData2)}
           type="submit"
-          className="uk-button uk-button-default uk-text-capitalize uk-margin-medium-top submit-register-button"
+          className="uk-button uk-button-default uk-text-capitalize submit-register-button"
         >
           Submit
         </button>

@@ -18,15 +18,6 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
-  .register-form-container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: center;
-    width: 80vw;
-    margin: 0 auto;
-
-}
 
 
 
@@ -36,7 +27,6 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text}; 
     border: 1px solid #FFAB62;
 
-    border-radius: 5px;
     
     width: min-content;
     height: max-content;
@@ -47,7 +37,6 @@ export const GlobalStyles = createGlobalStyle`
 .register-form-step-2 {
   width: 95vw;
   height: 95vh;
-  border: none; 
 
 }
 
@@ -59,7 +48,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 16px;
     border: 1px solid  #ff6c66;
     padding: 20px;
-    height: min-content;
+    height: max-content;
 }
 
 
@@ -87,10 +76,14 @@ input {
 
 
 
+
 button:hover {
     color: ${({ theme }) => theme.text} !important; 
 
+
 }
+
+
 
 
 

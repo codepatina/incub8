@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { navigate } from "@reach/router";
 import incub8API from "../api/incub8API";
-import RegisterStep1 from "./RegisterStep1";
+import RegisterStep1 from "../components/RegisterStep1";
 import "../styles/form.css";
 import "react-toastify/dist/ReactToastify.css";
-import RegisterStep2 from "./RegisterStep2";
+import RegisterStep2 from "../components/RegisterStep2";
 
 const Register = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("jtx007");
+  const [password, setPassword] = useState("jamesbond7");
   const [passwordConfirmation, setPasswordConfirmation] = useState(
-    ""
+    "jamesbond7"
   );
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("jamesjacobthomas7@gmail.com");
+  const [name, setName] = useState("James");
   const [bio, setBio] = useState("");
   const [error, setError] = useState("");
   const [page, setPage] = useState(0);
@@ -89,7 +89,7 @@ const Register = () => {
     }
   };
 
-  return <>{renderFormSteps()}</>;
+  return <div className="register-form">{renderFormSteps()}</div>;
 };
 
 export default Register;

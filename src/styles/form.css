@@ -1,83 +1,82 @@
 .form-title {
-    font-size: 24px;
-    color: #ff6c66;
-    font-family: forma-djr-deck, sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  font-size: 24px;
+  color: #ff6c66;
+  font-family: forma-djr-deck, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-
 .next-step-button {
-    background-color: #FFAB62;
-    border-radius: 5px;
-    font-family: forma-djr-deck, sans-serif;
-    font-size: 15px;
+  background-color: #ffab62;
+  border-radius: 5px;
+  font-family: forma-djr-deck, sans-serif;
+  font-size: 15px;
 }
 
 .form-submit-button {
-    background-color: #FFAB62;
-    border-radius: 5px;
-    font-family: forma-djr-deck, sans-serif;
-    font-size: 15px;
-    position: absolute;
-    bottom: 130px;
-    right: -100px;
+  background-color: #ffab62;
+  border-radius: 5px;
+  font-family: forma-djr-deck, sans-serif;
+  font-size: 15px;
+  position: absolute;
+  bottom: 130px;
+  right: -100px;
 }
 
 .upload-photo-button {
-    background-color: #FFAB62;
-    border-radius: 5px;
-    font-family: forma-djr-deck, sans-serif;
-    font-size: 15px;
-    height: 4vh;
+  background-color: #ffab62;
+  border-radius: 5px;
+  font-family: forma-djr-deck, sans-serif;
+  font-size: 15px;
+  height: 4vh;
 }
 
 .upload-photo-button:active {
-    color: white;
+  color: white;
 }
-
 
 .login-form-submit-button {
-   background-color: #FFAB62;
-    border-radius: 5px;
-    font-family: forma-djr-deck, sans-serif;
-    font-size: 15px; 
+  background-color: #ffab62;
+  border-radius: 5px;
+  font-family: forma-djr-deck, sans-serif;
+  font-size: 15px;
 }
-
 
 .tagline-container {
-    font-display: left-justified;
-    font-family: forma-djr-deck, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
-    padding: 20px;
-
-
+  font-display: left-justified;
+  font-family: forma-djr-deck, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  padding: 20px;
 }
 
-
-
 .tagline-title {
-    font-size: 32px;
-    color: #ff6c66;
-    font-family: forma-djr-deck, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-
+  font-size: 32px;
+  color: #ff6c66;
+  font-family: forma-djr-deck, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .previous-page-button {
-    background-color: #FFAB62;
-    border-radius: 5px;
-    font-family: forma-djr-deck, sans-serif;
-    font-size: 15px;
+  background-color: #ffab62;
+  border-radius: 5px;
+  font-family: forma-djr-deck, sans-serif;
+  font-size: 15px;
 }
 
 .submit-register-button {
-    background-color: #FFAB62;
-    border-radius: 5px;
-    font-family: forma-djr-deck, sans-serif;
-    font-size: 15px;
-    margin-left: 1250px;
+  background-color: #ffab62;
+  border-radius: 5px;
+  font-family: forma-djr-deck, sans-serif;
+  font-size: 15px;
+  margin-left: 1250px;
+}
+
+.add-link-button {
+  background-color: #ffab62;
+  border-radius: 5px;
+  font-family: forma-djr-deck, sans-serif;
+  font-size: 15px;
 }
