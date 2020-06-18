@@ -14,7 +14,7 @@ const Register = () => {
   );
   const [email, setEmail] = useState("jamesjacobthomas7@gmail.com");
   const [name, setName] = useState("James");
-  const [bio, setBio] = useState("");
+  const [bio, setBio] = useState("Hi my name is James Thomas");
   const [error, setError] = useState("");
   const [page, setPage] = useState(0);
 
@@ -82,6 +82,7 @@ const Register = () => {
             setBio={setBio}
             previousPage={previousPage}
             page={page}
+            handleSubmit={handleSubmit}
           />
 
         </section>

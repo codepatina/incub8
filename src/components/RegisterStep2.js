@@ -11,6 +11,7 @@ const RegisterStep2 = ({
   bio,
   setBio,
   previousPage,
+  handleSubmit
 }) => {
   const formData2 = {
     bio,
@@ -128,6 +129,7 @@ const RegisterStep2 = ({
         <button
           disabled={formHasEmptyFields(formData2)}
           type="submit"
+          onClick={(e) => handleSubmit(e)}
           className="uk-button uk-button-default uk-text-capitalize submit-register-button"
         >
           Submit
