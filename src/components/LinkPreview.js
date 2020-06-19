@@ -8,7 +8,7 @@ const LinkPreview = () => {
     e.preventDefault();
     try {
      
-      const response =  await incub8API.get(`/link_parser?url=${link}`)
+      const response =  await incub8API.get(`/link_parser/?url=${link}`)
       console.log(response.data)
       setData(response.data)
     } catch (error) {
