@@ -33,6 +33,7 @@ const Register = () => {
       navigate("/login");
     } catch (error) {
       console.log(error);
+      setError(error)
     }
   };
 
@@ -48,6 +49,7 @@ const Register = () => {
     if (page === 0) {
       return (
         <section className="uk-flex uk-flex-row  uk-flex-around	uk-flex-center uk-animation-slide-left-small">
+          {error}
           <RegisterStep1
             username={username}
             setUsername={setUsername}

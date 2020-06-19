@@ -10,10 +10,12 @@ const LinkPreview = () => {
      
       const response =  await incub8API.get(`/link_parser?url=${link}`)
       console.log(response.data)
+      setData(response.data)
     } catch (error) {
       console.log(error);
     }
   };
+  console.log(data)
   return (
     <div className="uk-margin">
       <div className="uk-margin" data-uk-margin>
