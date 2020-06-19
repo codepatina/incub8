@@ -7,13 +7,9 @@ const LinkPreview = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5001/link_parser", {
-        method: "POST",
-        body: JSON.stringify({ link: link }),
-        headers: { "Content-Type": "application/json" },
-      });
-      const data = await response.json()
-      console.log(data)
+     
+      const response =  await incub8API.get(`/link_parser?url=${link}`)
+      console.log(response.data)
     } catch (error) {
       console.log(error);
     }
